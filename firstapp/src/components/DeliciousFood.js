@@ -28,14 +28,26 @@ function DeliciousFood() {
         }
     ]
 
-    const foodSell = foods.map(food => { 
-        return <li>{food.name} - {food.price}</li>
-    })
+    // const foodSell = foods.map(food => {
+    //     return <li key={food.id}> {food.name} - {food.price}</li>
+    // })
+
+    // we create a function getPrice that takes a food object as an argument and returns the price of the food as a number by removing the '$' symbol and converting it to a number.
+    const getPrice = (food) => Number(food.price.replace('$', ''))
+
+    // we use Chain method to sort the food by price and then map it to display the name and price of each food item in a list.
+    const sortFood = [...foods]
+        .sort((a, b) => getPrice(a) - getPrice(b))
+        .map(food => (
+            <li key={food.id}>
+                {food.name} - {food.price}
+            </li>
+        ))
 
     return (
         <div>
             <ul>
-                {foodSell}
+                {sortFood}
             </ul>
         </div>
     )

@@ -3,6 +3,8 @@ import './App.css';
 import NameList from './components/NameList'
 import List from './components/List';
 import DeliciousFood from './components/DeliciousFood';
+import MyComponents from './MyComponents';
+
 
 function App() {
   return (
@@ -10,14 +12,16 @@ function App() {
       <h1>List of Names</h1>
       <NameList />
 
-
-
       <h1>List of Fruits</h1>
       <List />
 
       <h3>Food Sell</h3>
       <DeliciousFood />
 
+      <h3>useState() Hooks</h3>
+      <MyComponents />
+
+      
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
