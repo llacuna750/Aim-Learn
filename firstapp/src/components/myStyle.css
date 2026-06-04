@@ -1,0 +1,21 @@
+.primary {
+    color: hsl(27, 91%, 48%);
+}
+
+.font-xl {
+    font-size: 72px;
+}
+
+.secondary {
+    display: block;
+    font-size: medium;
+    color:hsl(208, 93%, 47%) ;
+}
+
+.remove {
+    display: none;
+}
+
+button {
+    margin: 0 5px;
+}

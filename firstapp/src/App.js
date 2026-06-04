@@ -4,9 +4,72 @@ import NameList from './components/NameList'
 import List from './components/List';
 import DeliciousFood from './components/DeliciousFood';
 import MyComponents from './MyComponents';
+import Stylesheet from './components/Stylesheet';
+import Inline from './components/Inline';
+import './appStyles.css'
+import styles from './appStyles.module.css'
+import Dessert from './components/Dessert'
+import { useState, useRef } from 'react';
 
+
+// Added a key prop for React's list rendering optimization
+const ToDo = props => {
+  const { id, createAt } = props;
+
+  return (
+    <tr>
+      <td>
+        <label>{id}</label>
+      </td>
+
+      <td>
+        <input />
+      </td>
+
+      <td>
+        <label>{createAt}</label>
+      </td>
+    </tr>
+  )
+}
 
 function App() {
+
+  const [todos, setTodos] = useState([
+    {
+      id: 'todo1',
+      createAt: '20:30',
+    },
+    {
+      id: 'todo2', // Fixed typo here from 'todo' to 'todo2'
+      createAt: '21:00',
+    }
+  ])
+
+  // Properly immutably reverses the array and updates state
+  const reverseOrder = () => {
+    setTodos([...todos].reverse());
+  }
+
+  // unControlled components
+  const Form = () => {
+    const inputRef = useRef(null);
+
+    const hanleSubmit = (event) => {
+      const inputValue = inputRef.current.value;
+      console.log(inputValue)
+      event.preventDefault()
+      
+    }
+
+    return (
+      <form onSubmit={hanleSubmit}>
+        <input ref={inputRef} type="text" />
+        <input type="submit" value="Submit" />
+      </form>
+    )
+  }
+
   return (
     <div className="App">
       <h1>List of Names</h1>
@@ -21,8 +84,40 @@ function App() {
       <h3>useState() Hooks</h3>
       <MyComponents />
 
-      
-      {/* <header className="App-header">
+      <Stylesheet primary={true} />
+
+      <Inline />
+      <h1 className='error'>Error</h1>
+      <h1 className={`${styles.success}`}>Success</h1>
+
+      <h1>Dessert</h1>
+      <Dessert />
+
+      {/* --- FIX: Added a button and wrapped ToDo inside a <table> --- */}
+      <div style={{ margin: '20px 0' }}>
+        <button onClick={reverseOrder}>Reverse Order</button>
+        <table style={{ margin: '0 auto', textAlign: 'left' }}>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Input</th>
+              <th>Created At</th>
+            </tr>
+          </thead>
+          <tbody>
+            {todos.map((todo) => (
+              <ToDo key={todo.id} id={todo.id} createAt={todo.createAt} />
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+
+      <h1 className={styles.borderaQ} >Controlled components vs. Uncontrolled components</h1>
+      <Form />
+      {/* ------------------------------------------------------------- */}
+
+      <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -35,7 +130,7 @@ function App() {
         >
           Learn React Gab!
         </a>
-      </header> */}
+      </header>
     </div>
   );
 }

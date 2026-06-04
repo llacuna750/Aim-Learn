@@ -1,0 +1,12 @@
+.success {
+    color: green;
+}
+
+.borderaQ {
+  border: 1px solid rgb(185, 20, 2);
+}
+
+.borderaQ:hover {
+  color: hsl(259, 77%, 49%);
+}
+
