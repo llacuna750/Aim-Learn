@@ -4,9 +4,25 @@
 
 .borderaQ {
   border: 1px solid rgb(185, 20, 2);
+  margin: 0;
 }
 
 .borderaQ:hover {
   color: hsl(259, 77%, 49%);
 }
 
+.borderaQNoMargin {
+  margin: 0;
+}
+
+.WhentoUseWhat {
+  border: 1px solid;
+  margin: 0;
+  display: none;
+}
+
+.noGap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}

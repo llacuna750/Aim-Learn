@@ -15,23 +15,59 @@ import { useState, useRef } from 'react';
 // Added a key prop for React's list rendering optimization
 const ToDo = props => {
   const { id, createAt } = props;
-
   return (
     <tr>
       <td>
         <label>{id}</label>
       </td>
-
       <td>
         <input />
       </td>
-
       <td>
         <label>{createAt}</label>
       </td>
     </tr>
   )
 }
+
+const DisplayUncontrolledComponent = ({ inputV }) => {
+  if (!inputV) return null;
+  return (
+    <h1>{inputV}</h1>
+  )
+}
+
+
+// unControlled components
+const Form = () => {
+  const inputRef = useRef(null);
+  const [submittedValue, setSubmittedValue] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const inputValue = inputRef.current.value;
+
+    // use the input value
+    console.log(inputValue ? `Form submitted with: ${inputValue}` : 'No input value');
+    setSubmittedValue(inputValue);
+
+    // optionally clear the input
+    inputRef.current.value = '';
+  }
+
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <label>Uncontrolled Components: </label>
+        <input id='textUncontrolled' ref={inputRef} type="text" placeholder='Enter any text'/>
+        <input type="submit" value="Submit" />
+      </form>
+      <DisplayUncontrolledComponent inputV={submittedValue} />
+    </>
+  )
+}
+
+
 
 function App() {
 
@@ -51,24 +87,16 @@ function App() {
     setTodos([...todos].reverse());
   }
 
-  // unControlled components
-  const Form = () => {
-    const inputRef = useRef(null);
-
-    const hanleSubmit = (event) => {
-      const inputValue = inputRef.current.value;
-      console.log(inputValue)
-      event.preventDefault()
-      
-    }
-
-    return (
-      <form onSubmit={hanleSubmit}>
-        <input ref={inputRef} type="text" />
-        <input type="submit" value="Submit" />
-      </form>
-    )
+  const showParagraph = () => {
+    const el = document.getElementById('showParagraph')
+    if (el) el.style.display = 'block'
   }
+
+  const hideParagraph = () => {
+    const el = document.getElementById('showParagraph')
+    if (el) el.style.display = 'none'
+  }
+
 
   return (
     <div className="App">
@@ -113,7 +141,18 @@ function App() {
       </div>
 
 
-      <h1 className={styles.borderaQ} >Controlled components vs. Uncontrolled components</h1>
+      {
+        /* Rule of thumb: Prefer controlled components for most cases.
+           Use uncontrolled for simple/quick forms or file inputs. */
+      }
+      <div className={`${styles.noGap}`}>
+        <h1 className={styles.borderaQ} onMouseEnter={showParagraph} onMouseLeave={hideParagraph}>Controlled components vs. Uncontrolled components</h1>
+        <p className={styles.WhentoUseWhat} id='showParagraph' style={{ display: 'none' }}>
+          Rule of thumb: Prefer controlled components for most cases.
+          Use uncontrolled for simple/quick forms or file inputs.
+        </p>
+      </div>
+
       <Form />
       {/* ------------------------------------------------------------- */}
 
