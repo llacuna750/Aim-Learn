@@ -3,7 +3,6 @@
 }
 
 .borderaQ {
-  border: 1px solid rgb(185, 20, 2);
   margin: 0;
 }
 
@@ -16,7 +15,6 @@
 }
 
 .WhentoUseWhat {
-  border: 1px solid;
   margin: 0;
   display: none;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './myStyle.css'
+import '../MyStyle.css'
 
 function Stylesheets(props) {
   let className = props.primary ? 'primary' : ''

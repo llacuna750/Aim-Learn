@@ -10,6 +10,7 @@ import './appStyles.css'
 import styles from './appStyles.module.css'
 import Dessert from './components/Dessert'
 import { useState, useRef } from 'react';
+import Time from './components/Time';
 
 
 // Added a key prop for React's list rendering optimization
@@ -100,6 +101,7 @@ function App() {
 
   return (
     <div className="App">
+      <Time />
       <h1>List of Names</h1>
       <NameList />
 
