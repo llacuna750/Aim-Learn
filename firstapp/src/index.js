@@ -39,8 +39,6 @@ root.render(
 
     <App />
   </div>
-
-
   // </React.StrictMode> 
 );
 

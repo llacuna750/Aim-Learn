@@ -10,7 +10,7 @@ import './appStyles.css'
 import styles from './appStyles.module.css'
 import Dessert from './components/Dessert'
 import { useState, useRef } from 'react';
-import Time from './components/Time';
+import RenderTimeCurrencyFlagLogo from './PhilippinesFlagCurrency/RenderTimeCurrencyFlagLogo';
 
 
 // Added a key prop for React's list rendering optimization
@@ -26,7 +26,7 @@ const ToDo = props => {
       </td>
       <td>
         <label>{createAt}</label>
-      </td> 
+      </td>
     </tr>
   )
 }
@@ -60,7 +60,7 @@ const Form = () => {
     <>
       <form onSubmit={handleSubmit}>
         <label>Uncontrolled Components: </label>
-        <input id='textUncontrolled' ref={inputRef} type="text" placeholder='Enter any text'/>
+        <input id='textUncontrolled' ref={inputRef} type="text" placeholder='Enter any text' />
         <input type="submit" value="Submit" />
       </form>
       <DisplayUncontrolledComponent inputV={submittedValue} />
@@ -101,7 +101,8 @@ function App() {
 
   return (
     <div className="App">
-      <Time />
+      <RenderTimeCurrencyFlagLogo />
+
       <h1>List of Names</h1>
       <NameList />
 
