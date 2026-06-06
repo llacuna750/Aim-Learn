@@ -26,7 +26,7 @@ const ToDo = props => {
       </td>
       <td>
         <label>{createAt}</label>
-      </td>
+      </td> 
     </tr>
   )
 }
