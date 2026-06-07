@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import getFlagCurrecy from "./CurrencyFlagLogo";
 
@@ -9,46 +9,96 @@ const params = {
   output: "JSON",
 };
 
+// ✅ Full check only works in Node.js/Backend
+async function isWebsiteOnline(url, params) {
+  try {
+    const response = await axios.get(url, { params });
+    return response.status === 200; // true if online
+  } catch {
+    return false; // false if offline or invalid
+  }
+}
+
 const { timeZone, flaglogo, currency } = getFlagCurrecy();
 const strToUpperCase = (curr) => {
   return curr !== curr.toUpperCase() ? curr.toUpperCase() : curr;
 };
 
 let curr = strToUpperCase(currency);
-
 const validateIfPHPcurrency = (curr) => {
-  if (curr === "PHP") {
-    console.log("Now you in Looking for:", curr);
-  }
+  return curr === "PHP" ? true : false;
+};
 
-  return curr;
+async function getExchangeRate(url, params) {
+  const response = await axios.get(url, { params });
+  return response;
+}
+
+const FormCurrencyValue = () => {
+  // ✅ You need a selected currency state to access the rate
+  const [selectedCurrency, setSelectedCurrency] = useState("PHP");
+  const [currencyExcRate, setcurrencyExcRate] = useState(null);
+
+  useEffect(() => {
+    async function fetchRates() {
+      try {
+        const data = await getExchangeRate(url, params);
+
+        if (!(await isWebsiteOnline(url, params))) {
+          throw new Error(
+            `API request failed with status ${data.request.status}`,
+          );
+        }
+        setcurrencyExcRate(data.data);
+      } catch (err) {
+        console.error("Failed in component:", err.message);
+      }
+    }
+
+    fetchRates();
+  }, []);
+
+  return (
+    <div>
+      <label htmlFor="currencyapi">Choose a currency:</label>
+      {/* ❌ Remove error JSX */}
+      <select
+        name="currencyapi"
+        id="currency"
+        onChange={(e) => setSelectedCurrency(e.target.value)}
+      >
+        {currencyExcRate ? (
+          Object.keys(currencyExcRate.rates).map((currency) => (
+            <option key={currency} value={currency}>
+              {currency}
+            </option>
+          ))
+        ) : (
+          <option>Loading currencies...</option>
+        )}
+      </select>
+      <p>
+        USD Exchange rate:{" "}
+        {currencyExcRate
+          ? currencyExcRate.rates[selectedCurrency]
+          : "Loading..."}{" "}
+      </p>
+    </div>
+  );
 };
 
 export function GetPhilippinesUSDtoPeso() {
-  axios
-    .get(url, { params })
-    .then((response) => {
-      if (!response.data.rates[curr]) {
-        throw new Error(`${curr} is not valid currency!`);
-      }
-
-      console.log(
-        `Dollar to Peso ExchancheRate: USD - ${curr} = ${response.data.rates[curr]}`,
-      );
-    })
-    .catch((error) => {
-      console.error(error.message);
-    });
-
   return (
     <div>
       GetPhilippinesUSDtoPeso <br />
       <p>
-        Currency: <b>{validateIfPHPcurrency(curr)}</b>
+        Currency:{" "}
+        <b>{!validateIfPHPcurrency(curr) ? "Not Philippines" : curr}</b>
       </p>
       <p>Time Zone: {timeZone}</p>
       <b>Country: </b>
       <img style={{ width: "10%" }} src={flaglogo} alt="flagCountry" />
+      <FormCurrencyValue />
     </div>
   );
 }

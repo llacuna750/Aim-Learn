@@ -15,7 +15,6 @@ function RenderTimeCurrencyFlagLogo() {
         currency={getFlagCurrecy.currency}
       />
       <GetPhilippinesUSDtoPeso />
-      {/* <div><img src="" alt="" /></div> */}
     </div>
   );
 }
