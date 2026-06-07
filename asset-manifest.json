@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Aim-Learn/static/css/main.938e1e54.css",
-    "main.js": "/Aim-Learn/static/js/main.11d5bddf.js",
+    "main.css": "/Aim-Learn/static/css/main.029a8d6f.css",
+    "main.js": "/Aim-Learn/static/js/main.f817078b.js",
     "static/js/453.58c25492.chunk.js": "/Aim-Learn/static/js/453.58c25492.chunk.js",
     "static/media/logo.svg": "/Aim-Learn/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/Aim-Learn/index.html",
-    "main.938e1e54.css.map": "/Aim-Learn/static/css/main.938e1e54.css.map",
-    "main.11d5bddf.js.map": "/Aim-Learn/static/js/main.11d5bddf.js.map",
+    "main.029a8d6f.css.map": "/Aim-Learn/static/css/main.029a8d6f.css.map",
+    "main.f817078b.js.map": "/Aim-Learn/static/js/main.f817078b.js.map",
     "453.58c25492.chunk.js.map": "/Aim-Learn/static/js/453.58c25492.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.938e1e54.css",
-    "static/js/main.11d5bddf.js"
+    "static/css/main.029a8d6f.css",
+    "static/js/main.f817078b.js"
   ]
 }
