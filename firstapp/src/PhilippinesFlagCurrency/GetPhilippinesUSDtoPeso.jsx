@@ -90,7 +90,6 @@ const FormCurrencyValue = () => {
 export function GetPhilippinesUSDtoPeso() {
   return (
     <div>
-      GetPhilippinesUSDtoPeso <br />
       <p>
         Currency:{" "}
         <b>{!validateIfPHPcurrency(curr) ? "Not Philippines" : curr}</b>
