@@ -14,13 +14,14 @@
   margin: 0;
 }
 
-.WhentoUseWhat {
-  margin: 0;
-  display: none;
-}
 
 .noGap {
   display: flex;
   flex-direction: column;
   gap: 2px;
+}
+
+.noGap p {
+  margin: 0;
+  display: none;
 }

@@ -15,6 +15,8 @@ function ControlledForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setUserName('')
+    setPassword('')
     console.log({ username, password }); // data readily available
   };
 
