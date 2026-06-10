@@ -1,23 +1,22 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import "../appStyles.css";
 
 function FeedBackform() {
   const [score, setScore] = useState("10");
   const [comment, setComment] = useState("");
+  const [isHasinput, setInput] = useState("");
 
   const handleOnchangeForm = (e) => {
     e.preventDefault();
 
-    if (Number(score) <= 5 && comment.length <= 10) {
-      alert("Please provide a comment explaination why the experience was poor.");
+    if ((Number(score) <= 5 || comment.length <= 10) && true) {
+      alert(
+        "Please provide a comment explaination why the experience was poor.",
+      );
       return;
     }
-
-    console.log("Form submitted!");
-    console.log(`Score: ${score}`)
-    console.log(`Comment: ${comment}`)
-    setComment('')
-    setScore('10')
+    setComment("");
+    setScore("10");
   };
 
   return (
@@ -36,7 +35,16 @@ function FeedBackform() {
           />
           <div className="Field">
             <label htmlFor="comment">Comment:</label>
-            <textarea name="comment" id="comment" onChange={e => setComment(e.target.value)}/>
+            <textarea
+              name="comment"
+              id="comment"
+              onChange={(e) => setComment(e.target.value)}
+              required
+              onInvalid={(e) =>
+                e.target.setCustomValidity("Comments cannot left blank.")
+              }
+              onInput={(e) => e.target.setCustomValidity("")}
+            />
           </div>
           <button type="submit">Submit</button>
         </fieldset>

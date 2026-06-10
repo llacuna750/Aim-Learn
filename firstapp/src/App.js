@@ -14,6 +14,7 @@ import RenderTimeCurrencyFlagLogo from './PhilippinesFlagCurrency/RenderTimeCurr
 import UncontrolledForm from './components/UncontrolledForm.jsx'
 import ControlledForm from './components/ControlledForm.jsx';
 import FeedBackform from './components/FeedBackform.jsx';
+import SignUp from './components/SignUp.jsx';
 
 // Added a key prop for React's list rendering optimization
 const ToDo = props => {
@@ -163,6 +164,7 @@ function App() {
         <UncontrolledForm />
         <ControlledForm />
         <FeedBackform />
+        <SignUp />
       </div>
       {/* ------------------------------------------------------------- */}
 
