@@ -2,52 +2,106 @@ import React, { useState } from "react";
 import "../appStyles.css";
 
 function SignUp() {
-    const [firstname, setFirstname] = useState('')
-    const [lastname, setLastname] = useState('')
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState('')
-    const [role, setRole] = useState('')
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState({
+    value: "",
+    isTouch: false,
+  });
+  const [role, setRole] = useState("role");
+
+  const roles = ["Role", "Individual", "Business"];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!getIsFormValid()) {
+      return
+    }
+    
+    console.log("Form successfully submitted!");
+    clearForm();
+  };
+
+  const PasswordErrorMessage = () => {
+    return (
+      <p className="FieldError">Password should have at least 8 characters</p>
+    );
+  };
+
+  const clearForm = () => {
+    setFirstname("");
+    setLastname("");
+    setEmail("");
+    setPassword({
+      value: "",
+      isTouch: false,
+    });
+    setRole("role");
+  };
+
+  const getIsFormValid = () => {
+    return firstname && email && password.value.length >= 8 && role !== "role";
+  };
 
   return (
     <div className="signUpdiv">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
         <div className="Fields">
-          <label htmlFor="firstname">First name </label>
+          <label htmlFor="firstname">
+            First name <sup>*</sup>
+          </label>
           <input
-            type="text"
-            name="firstname"
-            id="firstname"
+            value={firstname}
             placeholder="First name"
+            onChange={(e) => setFirstname(e.target.value)}
           />
 
           <label htmlFor="lastname">Last name</label>
           <input
-            type="text"
-            name="lastname"
-            id="lastame"
+            value={lastname}
             placeholder="Last name"
+            onChange={(e) => setLastname(e.target.value)}
           />
 
-          <label htmlFor="email">Email address</label>
+          <label htmlFor="email">
+            Email address <sup>*</sup>
+          </label>
           <input
-            type="text"
-            name="email"
-            id="email"
+            value={email}
             placeholder="Email address"
+            onChange={(e) => setEmail(e.target.value)}
           />
 
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">
+            Password <sup>*</sup>
+          </label>
           <input
-            type="text"
-            name="password"
-            id="password"
+            value={password.value}
+            onChange={(e) =>
+              setPassword({ ...password, value: e.target.value })
+            }
+            onBlur={() => {
+              setPassword({ ...password, isTouch: true });
+            }}
             placeholder="Password"
           />
+          {password.isTouch && password.value.length < 8 ? (
+            <PasswordErrorMessage />
+          ) : null}
 
-          <label htmlFor="role">Role</label>
-          <select name="role" id="role">
-            <option value="">Role</option>
+          <label htmlFor="role">
+            Role <sup>*</sup>
+          </label>
+          <select value={role} onChange={(e) => setRole(e.target.value)}>
+            {/* <option value="role">Role</option>
+            <option value="individual">Individual</option>
+            <option value="business">Business</option> */}
+            {roles.map((rl) => (
+              <option key={rl}>{rl}</option>
+            ))}
           </select>
         </div>
         <button type="submit">CREATE ACCOUNT</button>

@@ -35,7 +35,7 @@ async function getExchangeRate(url, params) {
 }
 
 const FormCurrencyValue = () => {
-  // ✅ You need a selected currency state to access the rate
+  // ✅ You need a selected currency state to access the ratez
   const [selectedCurrency, setSelectedCurrency] = useState("PHP");
   const [currencyExcRate, setcurrencyExcRate] = useState(null);
 
