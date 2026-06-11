@@ -104,6 +104,7 @@
   gap: 16px;
 }
 
+/* Your existing button style */
 .signUpdiv button {
   margin-left: 0;
   border-radius: 4px;
@@ -112,13 +113,21 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background-color: hsl(240, 100%, 25%);
   color: white;
-
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   font-variation-settings: "wdth" 100;
   cursor: pointer;
+}
+
+/* ✅ Add this - styles button when disabled */
+.signUpdiv button:disabled {
+  background-color: hsl(240, 10%, 70%); /* grayed out */
+  color: #efefef;
+  cursor: not-allowed;                  /* shows 🚫 cursor */
+  box-shadow: none;                     /* removes shadow */
+  opacity: 0.6;                         /* makes it fade */
 }
 
 .FieldError {

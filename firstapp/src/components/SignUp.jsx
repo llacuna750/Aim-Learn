@@ -16,11 +16,8 @@ function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!getIsFormValid()) {
-      return
-    }
-    
     console.log("Form successfully submitted!");
+    console.table({ firstname, lastname, email, password, role });
     clearForm();
   };
 
@@ -87,6 +84,7 @@ function SignUp() {
               setPassword({ ...password, isTouch: true });
             }}
             placeholder="Password"
+            required
           />
           {password.isTouch && password.value.length < 8 ? (
             <PasswordErrorMessage />
@@ -104,7 +102,9 @@ function SignUp() {
             ))}
           </select>
         </div>
-        <button type="submit">CREATE ACCOUNT</button>
+        <button type="submit" disabled={!getIsFormValid()}>
+          CREATE ACCOUNT
+        </button>
       </form>
     </div>
   );
