@@ -17,6 +17,7 @@ import FeedBackform from './components/FeedBackform.jsx';
 import SignUp from './components/SignUp.jsx';
 import ReactHookForm from './ReactForm/ReactHookForm.jsx';
 import Parent from './components/Parent.jsx';
+import Root from './ContextExample/MyApp';
 
 // Added a key prop for React's list rendering optimization
 const ToDo = props => {
@@ -171,7 +172,8 @@ function App() {
       </div>
 
       <Parent />
-      {/* ------------------------------------------------------------- */}
+      <Root />
+      {/* ----------------------------------------------------- */}
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

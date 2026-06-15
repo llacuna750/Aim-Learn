@@ -14,14 +14,14 @@ code {
 .parentDiv {
   display: flex;
   flex-direction: column;
-  border: 1px dotted  hsl(195, 72%, 50%);
+  border: 1px dotted hsl(195, 72%, 50%);
   align-items: center;
   margin: 50px 10px 10px;
   padding: 5px;
   width: min-content;
 }
 .parentDiv h3,
-p {
+.parentDiv p {
   margin: 0;
   width: max-content;
 }
@@ -29,4 +29,25 @@ p {
 .parentDiv button {
   width: min-content;
   margin: 10px;
+}
+
+.MyApp {
+  padding: 5px;
+}
+
+.MyApp header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.MyApp header p {
+  position: absolute;
+  right: 0;
+}
+
+.Username {
+  color: blue;
 }

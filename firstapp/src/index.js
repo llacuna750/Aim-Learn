@@ -38,7 +38,6 @@ root.render(
         {display_Information}
       </div>
     </div>
-
     <App />
   </div>
   // </React.StrictMode> 
