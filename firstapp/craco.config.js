@@ -1,31 +1,8 @@
-const WebpackObfuscator = require('webpack-obfuscator');
-
+// Production obfuscation can break dependency internals such as React Hook Form.
+// Disable it until you have a safe, dependency-aware configuration.
 module.exports = {
   webpack: {
     configure: (webpackConfig, { env }) => {
-      if (env === 'production') {
-        webpackConfig.plugins.push(
-          new WebpackObfuscator(
-            {
-              rotateStringArray: true,
-              stringArray: true,
-              stringArrayEncoding: ['base64'],
-              stringArrayThreshold: 1,
-              deadCodeInjection: true,
-              deadCodeInjectionThreshold: 0.7,
-              compact: true,
-              controlFlowFlattening: true,
-              controlFlowFlatteningThreshold: 0.75,
-              disableConsoleOutput: true,
-              identifierNamesGenerator: 'hexadecimal',
-              transformObjectKeys: true,
-              unicodeEscapeSequence: false
-            },
-            []
-          )
-        );
-      }
-
       return webpackConfig;
     }
   }

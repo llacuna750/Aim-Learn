@@ -9,10 +9,9 @@ function SignUp() {
     value: "",
     isTouch: false,
   });
+  const [power, setPower] = useState('')
   const [role, setRole] = useState("role");
-
   const roles = ["Role", "Individual", "Business"];
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -20,13 +19,11 @@ function SignUp() {
     console.table({ firstname, lastname, email, password, role });
     clearForm();
   };
-
   const PasswordErrorMessage = () => {
     return (
       <p className="FieldError">Password should have at least 8 characters</p>
     );
   };
-
   const clearForm = () => {
     setFirstname("");
     setLastname("");

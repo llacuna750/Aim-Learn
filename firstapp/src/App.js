@@ -15,6 +15,8 @@ import UncontrolledForm from './components/UncontrolledForm.jsx'
 import ControlledForm from './components/ControlledForm.jsx';
 import FeedBackform from './components/FeedBackform.jsx';
 import SignUp from './components/SignUp.jsx';
+import ReactHookForm from './ReactForm/ReactHookForm.jsx';
+import Parent from './components/Parent.jsx';
 
 // Added a key prop for React's list rendering optimization
 const ToDo = props => {
@@ -165,7 +167,10 @@ function App() {
         <ControlledForm />
         <FeedBackform />
         <SignUp />
+        <ReactHookForm />
       </div>
+
+      <Parent />
       {/* ------------------------------------------------------------- */}
 
       <header className="App-header">

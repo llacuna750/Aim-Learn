@@ -125,9 +125,9 @@
 .signUpdiv button:disabled {
   background-color: hsl(240, 10%, 70%); /* grayed out */
   color: #efefef;
-  cursor: not-allowed;                  /* shows 🚫 cursor */
-  box-shadow: none;                     /* removes shadow */
-  opacity: 0.6;                         /* makes it fade */
+  cursor: not-allowed; /* shows 🚫 cursor */
+  box-shadow: none; /* removes shadow */
+  opacity: 0.6; /* makes it fade */
 }
 
 .FieldError {

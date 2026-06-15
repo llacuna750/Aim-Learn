@@ -13,6 +13,8 @@ const myInforamtion = {
   yearAndCourse: '3rd Year Computer Science',
 }
 
+
+
 const display_Information = <div>
   I am <b>{myInforamtion.name}</b>, a <b>{myInforamtion.age}</b>-year-old student from <b>{myInforamtion.school}</b> taking up <b>{myInforamtion.yearAndCourse}</b>. <br />
   I am currently in my 3rd year and I am enjoying my time here at USTP. <br />
