@@ -16,7 +16,7 @@ export default function ReactHookForm() {
     const [selectedDate, setSelectedDate] = useState(new Date());
     return (
       <DatePicker showIcon selected={selectedDate} onChange={setSelectedDate} />
-    );
+    );        
   };
 
   const onSubmit = (data) => console.log(data);

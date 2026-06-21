@@ -18,6 +18,9 @@ import SignUp from './components/SignUp.jsx';
 import ReactHookForm from './ReactForm/ReactHookForm.jsx';
 import Parent from './components/Parent.jsx';
 import Root from './ContextExample/MyApp';
+import ReactUseState from './components/ReactUseState.jsx';
+import AppMemoUsecallbackUseMemo from './ContextExample/React Memo vs UseCallback vs useMEMO/AppMemoUsecallbackUseMemo.js';
+
 
 // Added a key prop for React's list rendering optimization
 const ToDo = props => {
@@ -173,6 +176,8 @@ function App() {
 
       <Parent />
       <Root />
+      <ReactUseState />
+      <AppMemoUsecallbackUseMemo />
       {/* ----------------------------------------------------- */}
 
       <header className="App-header">

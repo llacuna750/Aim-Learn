@@ -1,6 +1,9 @@
 import React from 'react'
 import '../index.css'
 import { UserProvider, useUser } from './UserContext'
+import { ThemeProvider } from './ThemeContext'
+import Switch from './Switch'
+import ThemeBlogDemo from './ThemeBlogDemo'
 
 const LoggedInUser = () => {
     const { user } = useUser()
@@ -10,7 +13,6 @@ const LoggedInUser = () => {
         </p>
     )
 }
-
 const Header = () => {
     return (
         <header>
@@ -43,16 +45,23 @@ function MyApp() {
     return (
         <div className="MyApp">
             <Header />
-            <Page />
+            <Page /> 
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 0' }}>
+                <h1 style={{ margin: 0 }}>Theme & User Context Demo</h1>
+                <Switch />
+            </div>
+            <ThemeBlogDemo />
         </div>
     )
 }
 
 function Root() {
     return (
-        <UserProvider>
-            <MyApp />
-        </UserProvider>
+        <ThemeProvider>
+            <UserProvider>
+                <MyApp />
+            </UserProvider>
+        </ThemeProvider>
     );
 }
 
