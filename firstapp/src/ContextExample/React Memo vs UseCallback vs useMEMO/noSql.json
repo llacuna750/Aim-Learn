@@ -1,0 +1,19 @@
+[
+    {
+        "id": "101",
+        "category": "food",
+        "name": "California Apples",
+        "qty": "150"
+    },
+    {
+        "id": "102",
+        "category": "electronics",
+        "name": "Apple MacBook Air",
+        "qty": "10",
+        "specifications": {
+            "storage": "256GB SSD",
+            "cpu": "8 Core",
+            "camera": "1080p FaceTime HD camera"
+        }
+    }
+]

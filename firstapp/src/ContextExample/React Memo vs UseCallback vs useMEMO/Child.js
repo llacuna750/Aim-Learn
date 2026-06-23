@@ -1,12 +1,14 @@
 import React from 'react'
+import sqlSample from './noSql.json'
 
 function Child(props) {
-
+    
     function changeNumber() {
         // Call the parent function as props.changeNumber()
         props.changeNumber(Math.floor(Math.random() * 10) + 1)
     }
-
+    
+    console.table(sqlSample);
     console.log('log here')
     return (
         <div>
