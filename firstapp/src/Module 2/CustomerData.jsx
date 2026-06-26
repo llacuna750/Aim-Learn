@@ -28,10 +28,12 @@ export default function CustomerData() {
   return (
     <div>
       <fieldset>
-        <h2>Customer Data</h2>
         {Object.keys(user).length > 0 ? (
-          // <img src="" alt="" />
-          <img src={user.results[0].picture.large} alt="LargePicture" />
+          <div>
+            <h2>Customer Data</h2>
+            <h2>Name: {user.results[0].name.first}</h2>
+            <img src={user.results[0].picture.large} alt="LargePicture" />
+          </div>
         ) : (
           <h2>Pending Fetching...</h2>
         )}
