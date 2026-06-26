@@ -2,3 +2,12 @@
     padding: 10px;
     border-radius: 10px;
 }
+
+.module2Challenge {
+    border: 1px solid;
+    width: fit-content;
+    padding: 15px;
+    border-radius: 5px;
+    justify-self: center;
+    margin-top: 18px;
+}

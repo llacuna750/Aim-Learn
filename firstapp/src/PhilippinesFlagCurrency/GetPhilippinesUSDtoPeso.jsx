@@ -39,22 +39,22 @@ const FormCurrencyValue = () => {
   const [selectedCurrency, setSelectedCurrency] = useState("PHP");
   const [currencyExcRate, setcurrencyExcRate] = useState(null);
 
-  useEffect(() => {
-    async function fetchRates() {
-      try {
-        const data = await getExchangeRate(url, params);
+  async function fetchRates() {
+    try {
+      const data = await getExchangeRate(url, params);  
 
-        if (!(await isWebsiteOnline(url, params))) {
-          throw new Error(
-            `API request failed with status ${data.request.status}`,
-          );
-        }
-        setcurrencyExcRate(data.data);
-      } catch (err) {
-        console.error("Failed in component:", err.message);
+      if (!(await isWebsiteOnline(url, params))) {
+        throw new Error(
+          `API request failed with status ${data.request.status}`,
+        );
       }
+      setcurrencyExcRate(data.data);
+    } catch (err) {
+      console.error("Failed in component:", err.message);
     }
+  }
 
+  useEffect(() => {
     fetchRates();
   }, []);
 

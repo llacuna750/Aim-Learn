@@ -23,7 +23,7 @@ function Time(noypi) {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, []); 
 
   return (
     <div

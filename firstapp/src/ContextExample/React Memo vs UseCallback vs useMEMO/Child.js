@@ -29,5 +29,7 @@ function Child(props) {
     React.memo is a higher-order component used to wrap a child component to prevent it from re-rendering if its props haven't changed
     But if you pass a function as a prop to a child component that is wrapped in React.memo, it will re-render every time the parent re-renders because the function reference changes on every render.
     so to prevent this, we can use useCallback() to memoize the function and maintain the same reference in memory across re-renders.
+    🔵 React.memo - Use when:
+    "My child component keeps re-rendering even though nothing changed"
 */
 export default React.memo(Child)

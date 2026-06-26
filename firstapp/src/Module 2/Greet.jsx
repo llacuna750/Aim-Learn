@@ -9,7 +9,7 @@ function Greet() {
     timestamp: "2024-01-01",
     author: "John",
   });
-  //   console.table(greeting, setGreeting);
+  console.table(greeting, setGreeting);
 
   /* 
     way of Updating that likely updating only a small part of it.
@@ -22,13 +22,14 @@ function Greet() {
     ❌ language, timestamp, author are ALL GONE!
     */
   }
-  /* function updateGreetSpreading() {
-        const newGreeting = { ...greeting };
-        newGreeting.greet = "Hello, World-Wide Web using ...Spread Operator";
-        setGreeting(newGreeting);
-    }  */
 
   // ✅ With Spread - KEEPS other properties!
+  /* function updateGreetSpreading() {
+    const newGreeting = { ...greeting };
+    newGreeting.greet = "Hello, World-Wide Web using ...Spread Operator";
+    setGreeting(newGreeting);
+  } */
+
   function updateGreetSpreading() {
     setGreeting({
       ...greeting,
@@ -56,7 +57,6 @@ function Greet() {
     1. Copy the old state object using the spread (...) operator and save it into a new variable and
     2. Pass the new variable to the state-updating function
   */
-
   function updateGreetComplex() {
     setGreeting((prevState) => {
       return { ...prevState, place: "World-Wide-Web 2026" };
@@ -65,7 +65,6 @@ function Greet() {
   const isHas2026 = (greeting?.place ?? "")
     .split(" ")
     .some((w) => Number(w) === 2026);
-  console.log(isHas2026);
 
   return (
     <div className="Module2">

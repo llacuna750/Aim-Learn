@@ -13,7 +13,14 @@ function AppMemoUsecallbackUseMemo() {
         In JavaScript, a new function is created on every render, which React.memo sees as a "new" prop, triggering a re - render.
 
         so i only use useCallback() when i pass a function as a prop to a child component that is wrapped in React.memo.
-    */
+        🟡 useCallback - Use when:
+        "I'm passing a function to a child component wrapped in React.memo but it still re-renders"
+
+        when to Recreate a function in React:
+        1. When the function is defined inside a component, it gets recreated on every render.
+        2. When the function depends on props or state that change frequently, it will be recreated on every render.
+        3. When the function is passed as a prop to a child component that is wrapped in React.memo, it will be recreated on every render.
+  */
   const memoizeCallback = useCallback(
     (number) => changeChildNumber(number),
     [],
@@ -24,6 +31,12 @@ function AppMemoUsecallbackUseMemo() {
     . It caches the output value and only re-runs the function if the dependencies change
     . Result: Instead of re-computing the logic on every render, React simply returns the last "memoized" value, saving processing power
     so i only use useMemo() when i have a heavy computation that i want to avoid re-computing on every render, and i want to cache the result until the dependencies change.
+    🟢 useMemo - Use when:
+    "I have an expensive calculation that runs every render"
+
+    when to Recompute a value in React:
+    1. When the value is derived from props or state that change frequently, it will be recomputed on every render.
+    2. When the value is derived from a function that is defined inside a component, it will be recomputed on every render. 
   */
   const memoizeMemo = useMemo(() => getLargestNumber(), [arr]);
 

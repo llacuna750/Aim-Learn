@@ -21,6 +21,12 @@ import Root from "./ContextExample/MyApp";
 import ReactUseState from "./components/ReactUseState.jsx";
 import AppMemoUsecallbackUseMemo from "./ContextExample/React Memo vs UseCallback vs useMEMO/AppMemoUsecallbackUseMemo.js";
 import Greet from "./Module 2/Greet.jsx";
+import GiftCard from "./Module 2/GiftCard.jsx";
+import DemoModule2 from "./Module 2/DemoModule2.jsx";
+import UseEpek from "./Module 2/UseEpek.jsx";
+import DataFetching from "./Module 2/DataFetching.jsx";
+import TodoApp from "./LocalStorageTest/TodoApp.jsx";
+import CustomerData from "./Module 2/CustomerData.jsx";
 
 // Added a key prop for React's list rendering optimization
 const ToDo = (props) => {
@@ -194,7 +200,13 @@ function App() {
       <div className="module2">
         <h2>Module 2</h2>
         <Greet />
+        <GiftCard />
+        <DemoModule2 />
+        <UseEpek />
+        <DataFetching />
+        <CustomerData />
       </div>
+
       {/* ----------------------------------------------------- */}
 
       <header className="App-header">
