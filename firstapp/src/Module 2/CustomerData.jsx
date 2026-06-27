@@ -25,6 +25,8 @@ export default function CustomerData() {
   /* Go to this file to test what is structure of data apiTestResult.js */
   //   console.log(user);
 
+  const  { date, age } = user.results?.[0]?.dob || {};
+
   return (
     <div>
       <fieldset>
@@ -32,6 +34,7 @@ export default function CustomerData() {
           <div>
             <h2>Customer Data</h2>
             <h2>Name: {user.results[0].name.first}</h2>
+            <h3>Age: {date}, {age}</h3>
             <img src={user.results[0].picture.large} alt="LargePicture" />
           </div>
         ) : (

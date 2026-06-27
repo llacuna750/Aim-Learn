@@ -24,10 +24,11 @@ export default function DataFetching() {
     fetchApi();
   }, []);
 
-  return someStateVariable.length > 0 ? (
+  const usd = someStateVariable?.bitcoin?.usd;
+  return usd !== undefined ? (
     <div>
-      <h1>Data returned:</h1>
-      <h2>{someStateVariable.results[0].price}</h2>
+      <h1>Bitcoin Price now:</h1>
+      <h2>${usd}</h2>
     </div>
   ) : (
     <h2>Data pending...</h2>
