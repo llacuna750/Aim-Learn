@@ -27,6 +27,8 @@ import UseEpek from "./Module 2/UseEpek.jsx";
 import DataFetching from "./Module 2/DataFetching.jsx";
 import TodoApp from "./LocalStorageTest/TodoApp.jsx";
 import CustomerData from "./Module 2/CustomerData.jsx";
+import UseReducerState from "./Module 2/UseReducerState.jsx";
+import Dialog from "./Module 3/Dialog.jsx";
 
 // Added a key prop for React's list rendering optimization
 const ToDo = (props) => {
@@ -205,6 +207,13 @@ function App() {
         <UseEpek />
         <DataFetching />
         <CustomerData />
+        <UseReducerState />
+      </div>
+
+
+      <div className="module3">
+        <h2>Module 3</h2>
+        <Dialog />
       </div>
 
       {/* ----------------------------------------------------- */}

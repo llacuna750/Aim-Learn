@@ -34,7 +34,7 @@ export default function CustomerData() {
           <div>
             <h2>Customer Data</h2>
             <h2>Name: {user.results[0].name.first}</h2>
-            <h3>Age: {date}, {age}</h3>
+            <h3>Date: {date},<br /> Age: {age}</h3>
             <img src={user.results[0].picture.large} alt="LargePicture" />
           </div>
         ) : (
